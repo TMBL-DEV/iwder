@@ -16,192 +16,201 @@
     </h1>
   </header>
   <main>
-    <section class="flex flex-col" style="margin-top: 1vh;">
-      <h2>
-        design system versioning: single library or individual components?
+    <article>
+      <section class="flex flex-col" style="margin-top: 1vh;">
+        <h2>
+          design system versioning: single library or individual components?
 
-      </h2>
-      <img class="big-img"
-        src="https://bradfrost.com/wp-content/uploads/2022/02/Screen-Shot-2022-02-04-at-1.21.08-PM-700x392.png"
-        alt="picture version number">
-      <figcaption> Version Number - V0.29.0</figcaption>
+        </h2>
+        <img class="big-img"
+          src="https://bradfrost.com/wp-content/uploads/2022/02/Screen-Shot-2022-02-04-at-1.21.08-PM-700x392.png"
+          alt="picture version number">
+        <figcaption> Version Number - V0.29.0</figcaption>
 
-      <p style="margin: 0">
-        You can version a design system’s component library as a single
-        package (e.g. Polaris v8.0), or you can version each component within
-        the library as its own mini package (e.g. Atlaskit Badge v15.0.8) This
-        post breaks down the pros and cons of versioning the whole library vs
-        individual components.
-      </p>
-    </section>
-    <section>
-      <p>
-      <h2>versioning the whole library</h2>
-      <h3 style="text-align: start">whole library pros</h3>
-      <ul>
-        <li>
-          <strong>Simpler</strong> – The <code>package.json</code> file at
-          the root of the component library folder manages the version for
-          all of the design system’s components and assets. Library
-          maintainers publish a new version that contains all the
-          components, and library consumers bump the version number in their
-          project to receive the latest.
-        </li>
-        <li>
-          <strong>Ensure library quality</strong>
-          – Stability is critical for a design system’s codebase. Versioning
-          the library as a whole means that maintainers can confidently say
-          the group of components contained in the library are all
-          compatible with one another. It also makes testing across versions
-          of the library possible.
-        </li>
-        <li>
-          <strong>Easier to sync with design tools and documentation</strong>
-          – Design tools unfortunately don’t (yet) have the same robust
-          versioning capabilities as code libraries. A design system’s UI
-          kit and code library should be in sync, and sharing version
-          numbers is one way to accomplish that. Managing a single version
-          number for a UI kit is easier than managing individual version
-          numbers for each component.
-        </li>
-      </ul>
-      <h3 style="text-align: start">whole library cons</h3>
-      <ul>
-        <li>
-          <strong>Potential to introduce distractions and bottlenecks for
-            downstream developers</strong>
-          – Large products consuming the design system might have many teams
-          working on different parts of it (Homepage team! Checkout team!
-          Product Detail Page team!). If changes — specifically breaking
-          changes — are introduced, product developers have to distract
-          themselves from their priorities to address the breaking changes
-          introduced by the library — even if those breaking changes aren’t
-          related to anything they’re presently working on. This is why
-          SemVer should be used and breaking changes need to be handled with
-          care.
-        </li>
-      </ul>
-    </section>
-    <section>
-      <p>
-      <h2>versioning individual components</h2>
-      <h3>individual components pros</h3>
-      <ul>
-        <li>
-          <strong>User developers only update what they need</strong> – Did
-          the datepicker update? Great! The team relying on it can pull down
-          the latest datepicker package without having to concern themselves
-          with changes to any other packages (except for the ones that are
-          dependencies of the component in question).
-        </li>
-        <li>
-          <strong>Developer teams can control when to make updates</strong>
-          – Because teams only pull down updates to the components they’re
-          focused on, they can determine the timeline for updating other
-          components from the library.
-        </li>
-      </ul>
-      <h3>individual components cons</h3>
-      <ul>
-        <li>
-          <strong>More overhead</strong> – Individually versioning each
-          component requires more effort for both library maintainers and
-          consumers. Library maintainers need to set up a tool like Lerna in
-          order to manage the individual packages, and the consuming teams
-          need to consider the version of each component on a given page in
-          addition to keeping track of individual component dependencies.
-        </li>
-        <li>
-          <strong>Can’t ensure library quality and compatibility</strong>
-          – It is impossible to test against all the version combinations of
-          all components in the library. Is Button v3.4 compatible with
-          Accordion 1.2 and Modal 5.3? Library maintainers can’t guarantee
-          quality, which means when issues arise consuming teams and
-          maintainers have go on an easter egg hunt to pin down where
-          compatibility problems are occurring. The maintainers then need to
-          cut a new patch version of the component, but can’t guarantee that
-          patch doesn't introduce further bugs with other component versions
-          elsewhere. Lose some of the full value of a design system – Design
-          systems offer many benefits, especially around product consistency
-          and quality. With individual component versioning, some of that
-          consistency and quality is lost, and other benefits like easily
-          rolling out turnkey redesigns are inhibited if versions are
-        </li>
+        <p style="margin: 0">
+          You can version a design system’s component library as a single
+          package (e.g. Polaris v8.0), or you can version each component within
+          the library as its own mini package (e.g. Atlaskit Badge v15.0.8) This
+          post breaks down the pros and cons of versioning the whole library vs
+          individual components.
+        </p>
+      </section>
+      <section>
+        <p>
+        <h2>versioning the whole library</h2>
+        <h3 style="text-align: start">whole library pros</h3>
+        <ul>
+          <li>
+            <strong>Simpler</strong> – The <code>package.json</code> file at
+            the root of the component library folder manages the version for
+            all of the design system’s components and assets. Library
+            maintainers publish a new version that contains all the
+            components, and library consumers bump the version number in their
+            project to receive the latest.
+          </li>
+          <li>
+            <strong>Ensure library quality</strong>
+            – Stability is critical for a design system’s codebase. Versioning
+            the library as a whole means that maintainers can confidently say
+            the group of components contained in the library are all
+            compatible with one another. It also makes testing across versions
+            of the library possible.
+          </li>
+          <li>
+            <strong>Easier to sync with design tools and documentation</strong>
+            – Design tools unfortunately don’t (yet) have the same robust
+            versioning capabilities as code libraries. A design system’s UI
+            kit and code library should be in sync, and sharing version
+            numbers is one way to accomplish that. Managing a single version
+            number for a UI kit is easier than managing individual version
+            numbers for each component.
+          </li>
+        </ul>
+        <h3 style="text-align: start">whole library cons</h3>
+        <ul>
+          <li>
+            <strong>Potential to introduce distractions and bottlenecks for
+              downstream developers</strong>
+            – Large products consuming the design system might have many teams
+            working on different parts of it (Homepage team! Checkout team!
+            Product Detail Page team!). If changes — specifically breaking
+            changes — are introduced, product developers have to distract
+            themselves from their priorities to address the breaking changes
+            introduced by the library — even if those breaking changes aren’t
+            related to anything they’re presently working on. This is why
+            SemVer should be used and breaking changes need to be handled with
+            care.
+          </li>
+        </ul>
+      </section>
+      <section>
+        <p>
+        <h2>versioning individual components</h2>
+        <h3>individual components pros</h3>
+        <ul>
+          <li>
+            <strong>User developers only update what they need</strong> – Did
+            the datepicker update? Great! The team relying on it can pull down
+            the latest datepicker package without having to concern themselves
+            with changes to any other packages (except for the ones that are
+            dependencies of the component in question).
+          </li>
+          <li>
+            <strong>Developer teams can control when to make updates</strong>
+            – Because teams only pull down updates to the components they’re
+            focused on, they can determine the timeline for updating other
+            components from the library.
+          </li>
+        </ul>
+        <h3>individual components cons</h3>
+        <ul>
+          <li>
+            <strong>More overhead</strong> – Individually versioning each
+            component requires more effort for both library maintainers and
+            consumers. Library maintainers need to set up a tool like Lerna in
+            order to manage the individual packages, and the consuming teams
+            need to consider the version of each component on a given page in
+            addition to keeping track of individual component dependencies.
+          </li>
+          <li>
+            <strong>Can’t ensure library quality and compatibility</strong>
+            – It is impossible to test against all the version combinations of
+            all components in the library. Is Button v3.4 compatible with
+            Accordion 1.2 and Modal 5.3? Library maintainers can’t guarantee
+            quality, which means when issues arise consuming teams and
+            maintainers have go on an easter egg hunt to pin down where
+            compatibility problems are occurring. The maintainers then need to
+            cut a new patch version of the component, but can’t guarantee that
+            patch doesn't introduce further bugs with other component versions
+            elsewhere. Lose some of the full value of a design system – Design
+            systems offer many benefits, especially around product consistency
+            and quality. With individual component versioning, some of that
+            consistency and quality is lost, and other benefits like easily
+            rolling out turnkey redesigns are inhibited if versions are
+          </li>
 
-        <li>
-          <strong>scattered or incompatible. Can lead to increased page
-            weight</strong>
-          - If Button v12 is the latest and greatest, but Modal v4.3 relies
-          on Button v3.8, then users can unwittingly end up with multiple
-          versions of the same component on their pages. This leads to
-          increased bloat and slower performance.
-        </li>
-        <li>
-          <strong>Can’t orchestrate with design tools and documentation</strong>
-          – as mentioned above, design tools and reference websites aren’t
-          terribly sophisticated with versioning. Designers likely aren’t
-          thinking about mixing Accordion v2.3 and TextPassage 4.3 and
-          instead think of them of wielding a cohesive design language. On
-          the documentation front, it can be challenging or impossible to
-          capture the many versions of individual components and keep track
-          of what guidelines and options are available from version to
-          version
-        </li>
-      </ul>
-    </section>
-    <section>
-      <h2>of course it depends</h2>
-      <p>
-        In our work, we favor versioning the library as a whole rather than
-        individual components for the reasons outlined above. In our
-        experience, the only time breaking changes are introduced post v1.0
-        are for significant overhauls of things that touch pretty much the
-        whole library, such as introducing new typography, rolling out
-        entirely new redesigns, and so on. In our experience, post-v1.0 it’s
-        unusual for individual components to need breaking API changes or
-        significant redesigns that aren’t also needed elsewhere. In those rare
-        cases, we coordinate with the consuming teams and their roadmap before
-        releasing any breaking change, and then provide support as the teams
-        are addressing those changes.
-      </p>
-      <p>Another consideration around which versioning strategy to choose has to do with the design system’s reach. If a
-        design system is primarily powering a digital product or two, then it makes sense for that product to manage the
-        library version as a site-wide consideration to ensure cohesiveness and quality. For design systems powering
-        dozens or hundreds of applications of many shapes, sizes, technologies, and ages, individual packaging might be
-        the only way to incrementally adopt the system. But recognize that fragmented approach dampens some of the most
-        obvious benefits design systems provide, especially consistency and quality.</p>
-    </section>
-    <section>
-      <h2>versioning different facets of a system</h2>
-      <p>Irrespective of the strategy used to version each component of the library, i might make sense to treat
-        different
-        facets of a design system as independent products with their own versioning.</p>
+          <li>
+            <strong>scattered or incompatible. Can lead to increased page
+              weight</strong>
+            - If Button v12 is the latest and greatest, but Modal v4.3 relies
+            on Button v3.8, then users can unwittingly end up with multiple
+            versions of the same component on their pages. This leads to
+            increased bloat and slower performance.
+          </li>
+          <li>
+            <strong>Can’t orchestrate with design tools and documentation</strong>
+            – as mentioned above, design tools and reference websites aren’t
+            terribly sophisticated with versioning. Designers likely aren’t
+            thinking about mixing Accordion v2.3 and TextPassage 4.3 and
+            instead think of them of wielding a cohesive design language. On
+            the documentation front, it can be challenging or impossible to
+            capture the many versions of individual components and keep track
+            of what guidelines and options are available from version to
+            version
+          </li>
+        </ul>
+      </section>
+      <section>
+        <h2>of course it depends</h2>
+        <p>
+          In our work, we favor versioning the library as a whole rather than
+          individual components for the reasons outlined above. In our
+          experience, the only time breaking changes are introduced post v1.0
+          are for significant overhauls of things that touch pretty much the
+          whole library, such as introducing new typography, rolling out
+          entirely new redesigns, and so on. In our experience, post-v1.0 it’s
+          unusual for individual components to need breaking API changes or
+          significant redesigns that aren’t also needed elsewhere. In those rare
+          cases, we coordinate with the consuming teams and their roadmap before
+          releasing any breaking change, and then provide support as the teams
+          are addressing those changes.
+        </p>
+        <p>Another consideration around which versioning strategy to choose has to do with the design system’s reach. If
+          a
+          design system is primarily powering a digital product or two, then it makes sense for that product to manage
+          the
+          library version as a site-wide consideration to ensure cohesiveness and quality. For design systems powering
+          dozens or hundreds of applications of many shapes, sizes, technologies, and ages, individual packaging might
+          be
+          the only way to incrementally adopt the system. But recognize that fragmented approach dampens some of the
+          most
+          obvious benefits design systems provide, especially consistency and quality.</p>
+      </section>
+      <section>
+        <h2>versioning different facets of a system</h2>
+        <p>Irrespective of the strategy used to version each component of the library, i might make sense to treat
+          different
+          facets of a design system as independent products with their own versioning.</p>
 
-      <p>For instance, <strong>both design tokens and icons can often operate a bit independently of a component
-          library</strong>,
-        especially if those assets are consumed by other environments beyond the design system’s component library (this
-        is especially true for supporting native platforms like iOS and Android). In these cases, it might make sense to
-        treat icons and/or design tokens as standalone products that then get consumed by other component libraries as a
-        product dependency.
-      </p>
-      <p>There’s a lot that goes into creating successful design systems that teams feel confident about using.
-        Versioning
-        is one of those things. <strong>
-          While these conversations tend to focus on the technical implementation, it’s important
+        <p>For instance, <strong>both design tokens and icons can often operate a bit independently of a component
+            library</strong>,
+          especially if those assets are consumed by other environments beyond the design system’s component library
+          (this
+          is especially true for supporting native platforms like iOS and Android). In these cases, it might make sense
           to
-          recognize that (like most design system challenges) these are ultimately people problems. Focus on the
-          relationship between library maintainers and library users, and establish sound processes and governance
-          models
-          to
-          build trust in the system and its team.
-        </strong></p>
+          treat icons and/or design tokens as standalone products that then get consumed by other component libraries as
+          a
+          product dependency.
+        </p>
+        <p>There’s a lot that goes into creating successful design systems that teams feel confident about using.
+          Versioning
+          is one of those things. <strong>
+            While these conversations tend to focus on the technical implementation, it’s important
+            to
+            recognize that (like most design system challenges) these are ultimately people problems. Focus on the
+            relationship between library maintainers and library users, and establish sound processes and governance
+            models
+            to
+            build trust in the system and its team.
+          </strong></p>
 
-      <p>For more info on versioning, check out Nathan Curtis’s amazing series on versioning and releasing design
-        systems,
-        and check out important concepts like SemVer. And also, have you had good, bad, or ugly experiences with
-        different
-        versioning strategies? I’d love to hear about them!</p>
-    </section>
+        <p>For more info on versioning, check out Nathan Curtis’s amazing series on versioning and releasing design
+          systems,
+          and check out important concepts like SemVer. And also, have you had good, bad, or ugly experiences with
+          different
+          versioning strategies? I’d love to hear about them!</p>
+      </section>
+    </article>
   </main>
   <footer class="flex center-horizontal">
     <p>Original article: <a
