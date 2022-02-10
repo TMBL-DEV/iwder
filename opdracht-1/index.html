@@ -4,6 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <link rel="stylesheet" href="./styles/index.css">
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>design system versioning</title>
 </head>
@@ -11,11 +12,15 @@
 <body class="flex flex-col">
   <header class="flex center-horizontal">
     <h1 style="width: 50vw">
-      design system versioning: single library or individual components?
+      design system versioning
     </h1>
   </header>
   <main>
     <section class="flex flex-col" style="margin-top: 1vh;">
+      <h2>
+        design system versioning: single library or individual components?
+
+      </h2>
       <img class="big-img"
         src="https://bradfrost.com/wp-content/uploads/2022/02/Screen-Shot-2022-02-04-at-1.21.08-PM-700x392.png" alt="">
       <p style="margin: 0">
@@ -73,7 +78,6 @@
           care.
         </li>
       </ul>
-      </p>
     </section>
     <section>
       <p>
@@ -141,7 +145,6 @@
           version
         </li>
       </ul>
-      </p>
     </section>
     <section>
       <h2>of course it depends</h2>
@@ -197,101 +200,9 @@
         versioning strategies? I’d love to hear about them!</p>
     </section>
   </main>
-</body>
-
-</html>
-
-<style>
-  * {
-    margin: 0;
-    padding: 0;
-    background-color: #121212;
-    color: white;
-    font-family: "Courier New", Courier, monospace;
-    max-width: 100vw;
-    /* overflow-x: hidden; */
-  }
-
-  .flex {
-    display: flex;
-  }
-
-  .flex-col {
-    flex-direction: column;
-  }
-
-  .center-horizontal {
-    justify-content: center;
-  }
-
-  body {
-    min-height: 100vh;
-    min-width: 95vw;
-  }
-
-  header {
-    min-height: 10vh;
-    align-items: center;
-  }
-
-  main {
-    margin: auto;
-    margin-top: 2vh;
-    min-height: 80vh;
-    width: 90vh;
-  }
-
-  footer {
-    height: 10vh;
-  }
-
-  h1 {
-    text-align: center;
-    font-size: 1.6rem;
-  }
-
-  h2 {
-    text-align: center;
-    font-size: 1.3rem;
-    margin-top: 1.4vh;
-    margin-bottom: 1.4vh;
-  }
-
-  h3 {
-    text-align: center;
-    font-size: 1.1rem;
-    margin-top: 1vh;
-    margin-bottom: 1vh;
-  }
-
-  p {
-    font-size: 1rem;
-    margin-top: 2vh;
-    margin-bottom: 2vh;
-  }
-
-  article {
-    margin-top: 4vh;
-    margin-bottom: 4vh;
-  }
-
-  li {
-    margin-top: 1vh;
-    margin-bottom: 1vh;
-  }
-
-  section {
-    margin-top: 6vh;
-    margin-bottom: 6vh;
-  }
-
-  .big-img {
-    width: 40vw;
-    margin: auto;
-    margin-bottom: 2vh;
-  }
-
-  .thumbnail {
-    width: 25vw;
-  }
-</style>
+  <footer class="flex center-horizontal">
+    <p>Original article: <a
+        href="https://bradfrost.com/blog/post/design-system-versioning-single-library-or-individual-components/?ref=heydesigner"
+        target="_blank" rel="noopener noreferrer">Bradfost Blog</a></p>
+  </footer>
+</body></html>

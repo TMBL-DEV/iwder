@@ -1,0 +1,96 @@
+* {
+  margin: 0;
+  padding: 0;
+  background-color: #121212;
+  color: white;
+  font-family: "Courier New", Courier, monospace;
+  max-width: 100vw;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
+.center-horizontal {
+  justify-content: center;
+}
+
+body {
+  min-height: 100vh;
+  min-width: 95vw;
+  max-width: 100vw;
+}
+
+header {
+  min-height: 10vh;
+  align-items: center;
+}
+
+main {
+  margin: auto;
+  margin-top: 2vh;
+  min-height: 80vh;
+  width: 90vh;
+}
+
+footer {
+  height: 10vh;
+}
+
+h1 {
+  text-align: center;
+  font-size: 1.6rem;
+}
+
+h2 {
+  text-align: center;
+  font-size: 1.3rem;
+  margin-top: 1.4vh;
+  margin-bottom: 1.4vh;
+}
+
+h3 {
+  text-align: center;
+  font-size: 1.1rem;
+  margin-top: 1vh;
+  margin-bottom: 1vh;
+}
+
+p {
+  font-size: 1rem;
+  margin-top: 2vh;
+  margin-bottom: 2vh;
+}
+
+article {
+  margin-top: 4vh;
+  margin-bottom: 4vh;
+}
+
+li {
+  margin-top: 1vh;
+  margin-bottom: 1vh;
+}
+
+section {
+  margin-top: 6vh;
+  margin-bottom: 6vh;
+}
+
+.big-img {
+  width: 40vw;
+  margin: auto;
+  margin-bottom: 2vh;
+}
+
+.thumbnail {
+  width: 25vw;
+}
+
+@-ms-viewport {
+  width: device-width;
+}
