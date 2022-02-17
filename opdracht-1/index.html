@@ -9,23 +9,34 @@
   <title>design system versioning</title>
 </head>
 
-<body class="flex flex-col">
-  <header class="flex center-horizontal">
-    <h1 style="width: 50vw">
-      design system versioning
-    </h1>
+<body>
+  <header>
+    <nav>
+      <h2 class="text-left">Artikels</h2>
+      <ul>
+        <li><a href="http://localhost:5500/opdracht-1/index.html">Design system versioning</a></li>
+        <li><a href="http://localhost:5500/opdracht-1/artikel-2.html">Apache VS NGINX </a></li>
+        <li><a href="http://localhost:5500/opdracht-1/artikel-3.html">How I built my Startup as a solo developer</a>
+        </li>
+      </ul>
+    </nav>
   </header>
   <main>
     <article>
+      <h1>
+        design system versioning
+      </h1>
       <section class="flex flex-col" style="margin-top: 1vh;">
         <h2>
           design system versioning: single library or individual components?
 
         </h2>
-        <img class="big-img"
-          src="https://bradfrost.com/wp-content/uploads/2022/02/Screen-Shot-2022-02-04-at-1.21.08-PM-700x392.png"
-          alt="picture version number">
-        <figcaption> Version Number - V0.29.0</figcaption>
+        <figure>
+          <img class="big-img"
+            src="https://bradfrost.com/wp-content/uploads/2022/02/Screen-Shot-2022-02-04-at-1.21.08-PM-700x392.png"
+            alt="picture version number">
+          <figcaption> Version Number - V0.29.0</figcaption>
+        </figure>
 
         <p style="margin: 0">
           You can version a design system’s component library as a single
@@ -165,7 +176,8 @@
           releasing any breaking change, and then provide support as the teams
           are addressing those changes.
         </p>
-        <p>Another consideration around which versioning strategy to choose has to do with the design system’s reach. If
+        <p>Another consideration around which versioning strategy to choose has to do with the design system’s reach.
+          If
           a
           design system is primarily powering a digital product or two, then it makes sense for that product to manage
           the
@@ -186,9 +198,11 @@
             library</strong>,
           especially if those assets are consumed by other environments beyond the design system’s component library
           (this
-          is especially true for supporting native platforms like iOS and Android). In these cases, it might make sense
+          is especially true for supporting native platforms like iOS and Android). In these cases, it might make
+          sense
           to
-          treat icons and/or design tokens as standalone products that then get consumed by other component libraries as
+          treat icons and/or design tokens as standalone products that then get consumed by other component libraries
+          as
           a
           product dependency.
         </p>

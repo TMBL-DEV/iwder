@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <link rel="stylesheet" href="./styles/index.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>How I built my Startup as a solo developer</title>
+</head>
+
+<body>
+  <header>
+    <nav>
+      <h2 class="text-left">Artikels</h2>
+      <ul>
+        <li><a href="http://localhost:5500/opdracht-1/index.html">Design system versioning</a></li>
+        <li><a href="http://localhost:5500/opdracht-1/artikel-2.html">Apache VS NGINX </a></li>
+        <li><a href="http://localhost:5500/opdracht-1/artikel-3.html">How I built my Startup as a solo developer</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <article>
+      <h1>
+        How I built my Startup as a solo developer
+      </h1>
+      <section class="flex flex-col" style="margin-top: 1vh;">
+        <h2>
+          How do they work?
+        </h2>
+        <figure>
+          <img class="big-img" src="https://miro.medium.com/max/700/1*VfX9D92O5onZsL7QOyjxuw.gif"
+            alt="picture version number">
+          <figcaption>Tony Star creating mark 1 (R.I.P. ironman)</figcaption>
+        </figure>
+        <p style="margin: 0">
+          This article will detail my journey from a Full Stack Engineer to Startup founder over the course of 10
+          months. Throughout this article I’ll explain the rationale behind choosing each part of my stack and how it
+          played out in the end.
+          So strap in, it is going to be a long yet fun article!
+        </p>
+      </section>
+      <section>
+        <h2>So what is my Startup about?</h2>
+        <p>Well, it took a couple of weeks to get a clean pitch drafted so I’ll lead with that.</p>
+
+        <p>skillShack(⚡); is a community for software professionals looking to share the projects they are working on
+          and get feedback. From side projects to startups!</p>
+
+        <figure class="flex center-horizontal">
+          <img class=" big-img" src="https://miro.medium.com/max/1400/1*kb6yGdF2Biq6IgaE-RG7eA.png"
+            alt="picture version number">
+          <figcaption>picture of skillshack website</figcaption>
+        </figure>
+
+        <figure class="flex center-horizontal">
+          <img class=" big-img" src="https://miro.medium.com/max/700/1*d8GAGqzp7k4E6Y3GfyO6Mg.png"
+            alt="picture version number">
+          <figcaption>picture of skillshack website</figcaption>
+        </figure>
+
+        <figure class="flex center-horizontal">
+          <img class=" big-img" src="https://miro.medium.com/max/700/1*cNimmn5bhFfx9u5n33GPvQ.png"
+            alt="picture version number">
+          <figcaption>picture of skillshack website</figcaption>
+        </figure>
+
+        <p>
+          With “skillShack(⚡);” I wanted to build a platform for developers to share the projects they are working on,
+          and for those stuck in tutorial hell provide a curated list of challenges that can be built into projects to
+          put their skills to use.
+          It has been my firm belief since the start that you can only get better at Software Development by actually
+          DEVELOPING SOFTWARE (obvious right ?) and yet most people engage in endless sprints of watching tutorial after
+          tutorial to add new buzz words to their Resumes. Most coding-centric platforms online have catered to the
+          problem-solving aspects of programming, which while giving you a good understanding of the fundamentals of the
+          language and engaging your intellect have diminishing returns after a while.
+          So I set out to build this platform with hopes of providing a safe space for developers to share their
+          projects, get feedback from the community and learn from one another.
+        </p>
+      </section>
+      <section>
+        <h2>Deciding on a Stack</h2>
+        <p>
+          Once I wrote down all the features I would want to make the experience truly unique, I set out to finalize a
+          tech stack. I needed the following attributes:
+        </p>
+        <ul>
+          <li>Easy to Scale and Deploy</li>
+          <li>A Good ORM with a strong API and support for formatted output on Raw Queries.</li>
+          <li>React on the frontend (it’s 2021 or 2022 by the time you read this)</li>
+          <li>Excellent SEO Support</li>
+          <li>PWA Support</li>
+          <li>Admin tools that were served separately from the main website</li>
+          <li>Social Authentication</li>
+          <li>GitHub Integration so that users can link their repositories.</li>
+        </ul>
+        <p>For each requirement, I put together a list of possible technologies/frameworks.</p>
+      </section>
+      <section>
+        <h2>The Stack</h2>
+        <ul>
+          <li>Frontend: Next.js</li>
+          <li>Backend: Express.js</li>
+          <li>Database: PostgreSQL with Sequelize ORM</li>
+          <li>Admin Tools: react-admin</li>
+          <li>DevOps: GitHub Actions, Vercel CLI, and Docker</li>
+          <li>Hosting:</li>
+          <li>AWS EC2 (Backend)</li>
+          <li>Vercel (Both Frontends)</li>
+        </ul>
+      </section>
+      <section>
+        <h2>Why Next.js ?</h2>
+        <p>As stated earlier SEO was crucial for me, and with create-react-app you subscribe to Client-Side Rendering
+          which will not play well with Web Crawlers of Search Engines (they do not execute JS).
+        </p>
+        <p>Next.js supports SSR(Server Side Rendering), SSG (Static Site Generation), and ISR (Incremental Static
+          Regeneration). I’ll summarize each in simple terms below:</p>
+
+        <ul>
+          <li>SSR: Essentially serves documents with all the components rendered and populated with necessary data (from
+            APIs). This way a bot can see all the info without the need for JavaScript execution. This makes serving
+            pages with no real-time updates like Blogs, Profile data etc simple and allows for good SEO.</li>
+          <li>SSG: It serves purely static pages (No API data), and offers good SEO at the same time. Useful for things
+            like documentation.</li>
+          <li>ISR: It’s like SSR but it periodically refreshes the static Pages with new API data. Useful for things
+            like blogs and profiles where updates may not be frequent but do happen and must be reflected.</li>
+        </ul>
+
+
+        <table>
+          <tr>
+            <th>Serving method</th>
+            <th>description</th>
+          </tr>
+          <tr>
+            <th>SSR</th>
+            <th> Essentially serves documents with all the components rendered and populated with necessary data (from
+              APIs). This way a bot can see all the info without the need for JavaScript execution. This makes serving
+              pages with no real-time updates like Blogs, Profile data etc simple and allows for good SEO.</th>
+          </tr>
+          <tr>
+            <th>SSG</th>
+            <th>It serves purely static pages (No API data), and offers good SEO at the same time. Useful for things
+              like documentation.</th>
+          </tr>
+          <tr>
+            <th>ISRR</th>
+            <th>It’s like SSR but it periodically refreshes the static Pages with new API data. Useful for things like
+              blogs and profiles where updates may not be frequent but do happen and must be reflected.</th>
+          </tr>
+        </table>
+
+        <p>Bonus: Next.js and Vercel have the perfect ecosystem.
+        </p>
+      </section>
+      <section>
+        <h2>Authentication: next-auth</h2>
+        <p>It couples perfectly with Next.js, it is served as a serverless function via Next.js which fully supports
+          them and Vercel does too in production, so no extra configurations. You can even remotely monitor the function
+          and check for errors through Vercel. It is perfect in every way, you should just look at their website to
+          learn more.</p>
+        <p>The docs were simple and I was able to set up Google and GitHub authentication in under an hour (had to wait
+          for Google to sync callback URLs).</p>
+      </section>
+      <section>
+        <h2>Component Library: material-ui</h2>
+        <p>I started the project before the Tailwind hype train hit its peak. And I did eventually try it on another
+          project, but it’s not my kind of thing. I’m very good at pure CSS already so I went with material-ui, it comes
+          with a good set of components out of the box and a few more from other community-made packages like treasury,
+          pickers, etc.
+        </p>
+      </section>
+      <section>
+        <h2>Admin Tools: react-admin</h2>
+        <p>It comes with a good set of tools out of the box it makes use of material-ui (so easier to customize and
+          share components). Plus you can easily assign roles and give restricted access to different aspects of the
+          App.
+        </p>
+      </section>
+      <section>
+        <h2>Backend: Express.js</h2>
+        <p>Express has been around since forever and it is pretty much the go-to for most people. I added a few packages
+          like express-sequelize-crud so that I could allow my admin tools to query it easily without the need for more
+          endpoints. Secured all the endpoints with JWT authentication and set up Role-Based Permissions.
+        </p>
+      </section>
+      <section>
+        <h2>Database: PostgreSQL</h2>
+        <p>This project was going to have a lot of interlinked tables, so No SQL was not going to cut it. I also needed
+          support for JSON documents to store certain nested data (Resumes). PostgreSQL also supports Full-Text Search
+          (FTS) out of the box which made it easier to build a feature-rich Search option.</p>
+        <p>Sequelize was good, it supported TS_Vectors out of the box which was necessary for me to build FTS supported
+          documents. And the support for formatted Raw Queries made writing joins simpler (kind of a pain doing it
+          through the ORM’s native API).
+        </p>
+      </section>
+      <section>
+        <h2>Deployment</h2>
+        <p>So my deployment workflow goes as follows:</p>
+        <ul>
+          <li>Merge a Pull Request to main which triggers GitHub Actions.</li>
+          <li>Build Preview Deployments for the admin and main website on Vercel.</li>
+          <li>Once the Preview build is built successfully, promote it to production. (I get notifications for each step
+            on
+            Slack thanks to a sweet Slack Integration).</li>
+          <li>In parallel, a docker image is created with contents of the backend code and pushed to my EC2 instance,
+            where
+            it's run with pm2. A script then performs necessary database migrations via sequelize-cli.</li>
+        </ul>
+      </section>
+      <section>
+        <h2>Closing thoughts</h2>
+        <p>It was a great journey building out the whole project by myself, I learned a lot of things along the way
+          including Canva and Figma. Spent a lot of time binging YC Startup School videos to figure out my pitch,
+          website content. I also tweeted my entire journey on my Twitter (drop by and say hi! Replying on medium has
+          been weird since forever), which was great because I got to connect with a lot of cool people.</p>
+        <p>I’m excited to close this article by saying skillShack(⚡); is live at skillshack.dev!</p>
+        <p>Would love to hear your thoughts in the comments and see you on the website!</p>
+      </section>
+    </article>
+  </main>
+  <footer class="flex center-horizontal">
+    <p>Original article: <a
+        href="hhttps://medium.com/@sushrit.pk21/how-i-built-my-startup-as-a-solo-developer-8561bf7eebde" target="_blank"
+        rel="noopener noreferrer">Medium - sushrit</a></p>
+  </footer>
+</body>
+
+</html>

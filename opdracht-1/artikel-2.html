@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <link rel="stylesheet" href="./styles/index.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>design system versioning</title>
+</head>
+
+<body>
+  <header>
+    <nav>
+      <h2 class="text-left">Artikels</h2>
+      <ul>
+        <li><a href="http://localhost:5500/opdracht-1/index.html">Design system versioning</a></li>
+        <li><a href="http://localhost:5500/opdracht-1/artikel-2.html">Apache VS NGINX </a></li>
+        <li><a href="http://localhost:5500/opdracht-1/artikel-3.html">How I built my Startup as a solo developer</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <article>
+      <h1>
+        Apache vs NGINX — what are the biggest advantages?
+      </h1>
+      <section class="flex flex-col" style="margin-top: 1vh;">
+        <h2>
+          How do they work?
+        </h2>
+        <figure>
+          <img class="big-img" src="https://miro.medium.com/max/1400/1*clPNWt-BS4HYO8FKxtdeWw.jpeg"
+            alt="picture version number">
+          <figcaption> circuit board</figcaption>
+        </figure>
+
+        <p style="margin: 0">
+          The two most popular open source HTTP web servers in the world have been fighting over a clear share on the
+          market. They both can provide a complete web stack, but NGINX is said to support dynamic content better —
+          tempting for VPS and dedicated hosting users, and Apache speed and performance stays a benefit for shared
+          hosting clients. Let’s have a look at the most common advantages and disadvantages of the two rivals.
+        </p>
+
+        <p>
+          NGINX was an answer to “how to get one web server to handle 10,000 connections, given the limitations of the
+          operating systems?” problem, commonly known as the C10K problem. It can be easily scaled on minimal hardware,
+          focuses on core web server and proxy features. Most importantly, it does not manage threads the same way
+          Apache does. It does not set up a new process for each web request — it combines worker processes, and each of
+          them handles multiple connections. The mechanism loops the requests, checking and processing events and works
+          on a connection only when an event is triggered. Nginx is an asynchronous, non-blocking, event-driven
+          connection handling algorithm, that is designed to serve static content quickly and to handle dynamic requests
+          off to other software.
+        </p>
+      </section>
+      <section>
+        <h2>Static Content</h2>
+        <p>Apache uses MPM methods to handle static content, and NGINX because of different methods of handling threads
+          has a much greater performance. It is about 2.5 faster than Apache — tested on 1k concurrent connections. With
+          512 concurrent connections NGINX showed to be two times faster.</p>
+      </section>
+      <section>
+        <h2>Dynamic Content</h2>
+        <p>
+          Apache process dynamic content by it’s MPM work models. It sets a processor into it’s worker instances, which
+          allows to execute dynamic content in the web server, not having to use third-party components. NGINX does not
+          handle the dynamic content internally — all dynamic requests are passed to external processor for execution.
+          It communicates with the processor through protocols like http, FastCGI, SCGI, uWSGI, memcache, and waits for
+          the rendered content response. This means, that static content responds quicker on NGINX as the dynamic
+          content is not embedded in the server’s native work process, but when it comes to dynamic performance
+          measurements, Apache and NGINX go head to head. They both handle the same concurrency in PHP runtime
+          environment and almost the same performance in other languages.
+        </p>
+      </section>
+      <section>
+        <h2>Operating system</h2>
+        <p>
+          Both Apache and NGINX run on Unix-like systems, but only Apache has a full support Microsoft Windows support.
+          That does not mean that NGINX can’t handle Microsoft, just Apache performs a bit better in this matter.
+        </p>
+      </section>
+      <section>
+        <h2>Configuration</h2>
+        <p>Directory-level configuration in Apache allows to interpret directives within the content directories
+          themselves — the files interpreted by Apache are called .htaccess files. They are kept in the content
+          directories and Apache checks the components for .htaccess files to apply the directives within them. Those
+          files are not supported by NGINX and the server does not provide outside configuration. However, there are
+          some positives about that situation — when system directory-level .htaccess files are called out, Apache
+          checks for those files in every parent directory, reads and interprets them for each request. Meanwhile, NGINX
+          handles request faster, as it does a single directory lookup.
+        </p>
+        <p>We, at DreamCommerce use NGINX to manage multi-ecommerce platforms.
+        </p>
+      </section>
+    </article>
+  </main>
+  <footer class="flex center-horizontal">
+    <p>Original article: <a
+        href="https://medium.com/dreamcommerce/apache-vs-nginx-what-are-the-biggest-advantages-380ad8ebd4a4"
+        target="_blank" rel="noopener noreferrer">Medium - dreamcommerce</a></p>
+  </footer>
+</body>
+
+</html>
