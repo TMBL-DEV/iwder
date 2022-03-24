@@ -59,7 +59,7 @@ nav {
 }
 
 article {
-  width: 70vw;
+  width: 25vw;
   margin: auto;
   margin-top: 4vh;
   margin-bottom: 4vh;
@@ -152,8 +152,13 @@ td {
   text-align: left;
 }
 
-@-ms-viewport {
-  width: device-width;
+.border {
+  border: white;
+  border-style: solid;
+  border-width: 1px;
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: column;
 }
 
 @media only screen and (max-width: 600px) {

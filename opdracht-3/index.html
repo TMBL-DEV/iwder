@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Flex cards</title>
+    <link rel="stylesheet" href="./styles/index.css" />
+</head>
+
+<body>
+    <header>
+        <section>
+            <h1>zucc it</h1>
+            <section class="flex flex-row">
+                <h3>filter favorites</h3>
+                <input type="checkbox" name="filter favorites" id="filter-favorites" />
+            </section>
+        </section>
+        <section class="flex flex-row filter-bar">
+            <h2>filters</h2>
+            <article class="flex flex-row filter-input-container">
+                <h2>filter brood</h2>
+                <input type="checkbox" class="filter-input" data-filter="bread" name="filter favorites" />
+            </article>
+            <article class="flex flex-row filter-input-container">
+                <h2>filter pizza</h2>
+                <input type="checkbox" class="filter-input" data-filter="pizza" name="filter favorites" />
+            </article>
+            <article class="flex flex-row filter-input-container">
+                <h2>filter pasta</h2>
+                <input type="checkbox" class="filter-input" data-filter="pasta" name="filter favorites" />
+            </article>
+        </section>
+    </header>
+    <main class="container">
+        <article class="menu-item" data-category="bread">
+            <figure>
+                <img src="./images/fat_cat.webp" />
+            </figure>
+            <h2>broodje kat</h2>
+        </article>
+        <article class="menu-item" data-category="bread">
+            <figure>
+                <img class="img" src="./images/fat_cat.webp" />
+            </figure>
+            <h2 class="header">broodje kat</h2>
+        </article>
+        <article class="menu-item" data-category="bread">
+            <figure>
+                <img src="./images/fat_cat.webp" />
+            </figure>
+            <h2>broodje kat</h2>
+        </article>
+        <article class="menu-item" data-category="pizza">
+            <figure>
+                <img src="./images/fat_cat.webp" />
+            </figure>
+            <h2>pizza le pussy</h2>
+        </article>
+        <article class="menu-item" data-category="pizza">
+            <figure>
+                <img src="./images/fat_cat.webp" />
+            </figure>
+            <h2>pizza le pussy</h2>
+        </article>
+        <article class="menu-item" data-category="pizza">
+            <figure>
+                <img src="./images/fat_cat.webp" />
+            </figure>
+            <h2>pizza le pussy</h2>
+        </article>
+        <article class="menu-item" data-category="pasta">
+            <figure>
+                <img src="./images/fat_cat.webp" />
+            </figure>
+            <h2>pasta le miauw miauw</h2>
+        </article>
+        <article class="menu-item" data-category="pasta">
+            <figure>
+                <img src="./images/fat_cat.webp" />
+            </figure>
+            <h2>pasta le miauw miauw</h2>
+        </article>
+        <article class="menu-item" data-category="pasta">
+            <figure>
+                <img src="./images/fat_cat.webp" />
+            </figure>
+            <h2>pasta le miauw miauw</h2>
+        </article>
+    </main>
+</body>
+<script src="./scripts/index.js"></script>
+
+</html>
